@@ -1,0 +1,25 @@
+input.ui-autocomplete-loading,select.ui-autocomplete-loading {
+  	background: white url('../plugins/jquery-ui/images/ui-anim_basic_16x16.gif') right center no-repeat !important;
+}
+.ui-autocomplete {
+  	max-height: 400px;
+  	overflow-y: auto;
+  	/* prevent horizontal scrollbar */
+  	overflow-x: hidden;
+  	z-index:2000;
+}
+/* IE 6 doesn't support max-height
+* we use height instead, but this forces the menu to always be this tall
+*/
+* html .ui-autocomplete {
+  	height: 400px;
+}		
+
+.with-errors {
+  display:none; 
+}
+
+.has-error .with-errors {
+  display: block;
+}
+

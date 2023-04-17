@@ -1,0 +1,653 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Личный кабинет</title>
+    <meta content='' name='keywords'>
+    <meta content='' name='description'>
+    <link type="image/x-icon" href="img/favicon/favicon.ico" rel="shortcut icon">
+    <script src="assets/plugins/jquery/jquery-3.5.1.min.js"></script>
+    <link href="assets/plugins/jquery-ui/jquery-ui.css" rel="stylesheet">
+    <link href="assets/plugins/loader/loader.css" rel="stylesheet">
+    <link type="text/css" href="assets/plugins/fancybox/jquery.fancybox.min.css" rel="stylesheet">
+    <link type="text/css" href="libs/bootstrap/bootstrap.min.css" rel="stylesheet">
+    <link type="text/css" href="libs/swiper/swiper-bundle.min.css" rel="stylesheet">
+    <link type="text/css" href="libs/datepicker-bootstrap/datepicker.min.css" rel="stylesheet">
+    <link type="text/css" href="libs/datatables/datatables.min.css" rel="stylesheet">
+    <link type="text/css" href="libs/bootstrap-select/css/bootstrap-select.min.css" rel="stylesheet">
+    <link type="text/css" href="css/main.min.css" rel="stylesheet">
+    <link href="assets/css/my_style.css" rel="stylesheet">
+    <meta name="facebook-domain-verification" content="we9g8r6wu56d8uj2f2b7bt01r5ie9t" />
+</head>
+
+<body>
+    <header>
+
+        <div class="container px-0 page-header">
+            <div class="row">
+                <div class="col d-flex justify-content-end">
+                    <div class="profile-name">
+                        <img class="mr-2" src="img/icons/user.svg" alt="">
+                        <span id="profile-name">Дмитрий<span>
+                    </div>
+                    <a class="logout" href="#" onclick="logout();">
+                        Выйти
+                    </a>
+                </div>
+            </div>
+
+        </div>
+
+    </header>
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+
+                <H1 id="lk-header" class="text-center">Мои баллы<H2>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row mt-4 p-0 ">
+            <div class="col-12 p-0">
+
+                <ul class="nav justify-content-space-between">
+                    <li class=" col-md-3 custom-tab   p-0  text-center">
+
+                        <a class="nav-link active" href="#tab-1" onclick="changeHeader('Мои баллы')"
+                            data-toggle="tab">Мои баллы</a>
+                    </li>
+
+                    <li class="col custom-tab   p-0  text-center">
+                        <a class="nav-link" href="#tab-2" onclick="changeHeader('Обучение')"
+                            data-toggle="tab">Обучение</a>
+                    </li>
+                    <li class="col p-0 custom-tab    text-center">
+                        <a class="nav-link" href="#tab-3" onclick="changeHeader('Персональные данные')"
+                            data-toggle="tab">Персональные данные</a>
+                    </li>
+                    <li class="col p-0 custom-tab   text-center">
+                        <a class="nav-link " href="#tab-4" onclick="changeHeader('Вопрос-ответ')"
+                            data-toggle="tab">Вопрос-ответ</a>
+                    </li>
+                </ul>
+            </div>
+            <script type="text/javascript">
+                function changeHeader(arg) {
+                    let header = document.getElementById('lk-header')
+                    header.innerHTML = arg
+                }
+            </script>
+        </div>
+    </div>
+    <div class="container lk-padding bg-white mb-5 tab-pane active fade show " id="tab-1">
+        <div class="row p-0 ">
+            <div class="col-12 p-0 ">
+                <div class="row p-0">
+                    <div class="col-lg-6 p-0 dial-position">
+                        <div class="dial-container">
+                            <img class="dial-img" src="img/dial/dial.svg" alt="">
+                            <img class="dial-arrow" src="img/dial/arrow.svg" alt="">
+                            <div class="start-value">0</div>
+                            <div class="half-value"></div>
+                            <div class="end-value"></div>
+                            <div class="score">
+                                <div class="score-description">Ваше количество баллов</div>
+                                <div class="score-count">0 б.</div>
+                                <div class="score-update">
+                                    <img src="img/dial/update.svg" alt="">
+                                    Обновлено 12 марта 2023
+                                </div>
+                                <script type="text/javascript">
+                                    maxValue = 1600
+                                    value = 800
+                                    halfValue = maxValue / 2
+                                    let scoreDiv = document.getElementsByClassName('score-count');
+                                    scoreDiv[0].innerHTML = value + ' б.'
+                                    let halfValueDiv = document.getElementsByClassName('half-value');
+                                    halfValueDiv[0].innerHTML = halfValue
+                                    let maxValueDiv = document.getElementsByClassName('end-value');
+                                    maxValueDiv[0].innerHTML = maxValue
+                                    let arrow = document.getElementsByClassName('dial-arrow');
+                                    arrow[0].style.transform = `rotate(${value * 240 / maxValue}deg)`
+
+                                </script>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 p-0">
+                        <div class="user-info">
+                            <div class="row p-0">
+                                <div class="col-3 p-0">
+                                    <img class="profile-img" src="img/icons/profile.svg" alt="">
+                                </div>
+                                <div class="col-9 d-flex flex-column p-0 pl-4">
+                                    <span>
+                                        <div class="profile-label">Должность участника</div>
+                                        <div class="profile-title">«Автомир», Ленинградский пр-кт, 33
+                                            150 044, Ярославль</div>
+                                    </span>
+                                    <span class="pt-4">
+                                        <div class="profile-label">ФИО участника</div>
+                                        <div class="profile-title">Петров Иван Сергеевич</div>
+                                    </span>
+                                    <span class="pt-4">
+                                        <div class="profile-label">Должность участника</div>
+                                        <div class="profile-title">Региональный менеджер</div>
+                                    </span>
+                                    <span class="pt-4">
+                                        <div class="profile-label">Статус анкеты</div>
+                                        <div class="profile-title">Статус анкеты</div>
+                                    </span>
+                                    <span class="pt-4">
+                                        <div class="profile-label">Место в общем рейтинге </div>
+                                        <div class="profile-title-pos">14 место</div>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row text-center">
+            <div class="col-12 p-5">
+                <H2>Мои продажи</H2>
+                <P class="mt-5">К сожалению у вас нет продаж на данный момент</P>
+            </div>
+            <div class="table-responsive winners-table-wrapper">
+                <table id="tableData" class="g-table table">
+                    <thead>
+                        <tr>
+                            <th>Дата продажи </th>
+                            <th>Артикул</th>
+                            <th>Наименование запчасти</th>
+                            <th>Кол-во проданных в шт.</th>
+                            <th>Кол-во баллов</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                </table>
+            </div>
+            <script>
+                $(function () {
+                    searchData();
+                });
+                function searchData() {
+                    $('#tableData').DataTable({
+                        "destroy": true,
+                        "ajax": {
+                            "url": "data",
+                            "method": "POST",
+                            "headers": {
+                                'Access-Control-Allow-Origin': '*'
+                            },
+                            "data": { phone: $('#searchphone').val(), prize_type: $('.winners-nav .winners-nav__link.active').data('prize') },
+                            "dataSrc": ""
+                        },
+                        "iDisplayLength": 8,
+                        "sDom": '<"row view-filter"<"col-sm-12"<"pull-left"l><"pull-right"><"clearfix">>>t<"row view-pager"<"col-sm-12"<"text-center g-pagination"ip>>>'
+                    });
+
+                    return false;
+                }
+            </script>
+        </div>
+    </div>
+    <div class="container lk-padding bg-white mb-5 tab-pane fade" id="tab-2">
+        <div class="row">
+            <div class="col  d-flex justify-content-center flex-column align-items-center p-0">
+                <H3>Посмотрите видео и пройдите опрос</H3>
+                <video class="lk-video" width="auto" controls="controls">
+                    <source
+                        src="https://streaming.video.yandex.ru/get/yndx-video/m-42220-17a7be0554e-ca9878b3e384ce9b/720p.mp4"
+                        type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"'>
+                </video>
+                <div class="row d-flex justify-content-center flex-column align-items-center">
+                    <form id="formQuiz" method="post" action="" class="ajax validate">
+                        <div class="div">
+                            <H3 class="mt-5 text-left mb-3"> Выберите правильный ответ на вопрос:</H3>
+                            <div class="quiz">
+                                <h4>Что нужно сделать, чтобы принять участие в Акции?</h4>
+                                <div class="form-row flex-column">
+                                    <div class="col-auto">
+                                        <label class="checkbox">
+                                            <input class="checkbox__input" type="radio" name="ques-1" checked=""><span
+                                                class="checkbox__text-ques">Количество баллов, накопленное
+                                                Участником.</span>
+                                        </label>
+                                    </div>
+                                    <div class="col-auto py-2">
+                                        <label class="checkbox">
+                                            <input class="checkbox__input" type="radio" name="ques-1" checked=""><span
+                                                class="checkbox__text-ques">Дата обновления информации по баллам.</span>
+                                        </label>
+                                    </div>
+                                    <div class="col-auto py-2">
+                                        <label class="checkbox">
+                                            <input class="checkbox__input" type="radio" name="ques-1" checked=""><span
+                                                class="checkbox__text-ques">Дата обновления информации по баллам</span>
+                                        </label>
+                                    </div>
+                                    <div class="col-auto py-2">
+                                        <label class="checkbox">
+                                            <input class="checkbox__input" type="radio" name="ques-1" checked=""><span
+                                                class="checkbox__text-ques">Место в общем рейтинге по всем дилерским
+                                                центрам;</span>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="quiz mt-3">
+                                <h4>Чем ближе количество баллов Участника к максимальному количеству баллов, тем ближе
+                                    стрелка спидометра к максимальной скорости?</h4>
+
+
+                                <div class="form-row flex-column">
+                                    <div class="col-auto">
+                                        <label class="checkbox">
+                                            <input class="checkbox__input" type="radio" name="ques-2" checked=""><span
+                                                class="checkbox__text-ques">Количество баллов, накопленное
+                                                Участником.</span>
+                                        </label>
+                                    </div>
+                                    <div class="col-auto py-2">
+                                        <label class="checkbox">
+                                            <input class="checkbox__input" type="radio" name="ques-2" checked=""><span
+                                                class="checkbox__text-ques">Дата обновления информации по баллам.</span>
+                                        </label>
+                                    </div>
+                                    <div class="col-auto py-2">
+                                        <label class="checkbox">
+                                            <input class="checkbox__input" type="radio" name="ques-2" checked=""><span
+                                                class="checkbox__text-ques">Дата обновления информации по баллам</span>
+                                        </label>
+                                    </div>
+                                    <div class="col-auto py-2">
+                                        <label class="checkbox">
+                                            <input class="checkbox__input" type="radio" name="ques-2" checked=""><span
+                                                class="checkbox__text-ques">Место в общем рейтинге по всем дилерским
+                                                центрам;</span>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 p-0 py-2">
+                            <button type="submit" class="btn btn-primary mt-3">Отправить на проверку</button>
+                        </div>
+                        <div class="col-lg-8 p-0 py-2">
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container  lk-padding bg-white mb-5 tab-pane fade" id="tab-3">
+        <div class="row lk-reverse">
+            <div class="col-lg-7 p-0">
+                <div class="lk-box-form">
+                    <h3 class="p-2">Регистрационные данные:</h3>
+                    <div class="row ">
+                        <div class="col-md-6 p-2">
+                            <div class="form-group  ">
+                                <input class="form-control js-input " type="text" value="Сухов" disabled="" readonly="">
+                                <div class="form-label">Фамилия</div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 p-2">
+                            <div class="form-group  ">
+                                <input class="form-control js-input pr-120" type="text" value="Дмитрий" disabled=""
+                                    readonly="">
+                                <div class="form-label">Имя</div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 p-2">
+                            <div class="form-group  ">
+                                <input class="form-control js-input pr-120" type="text" value="Васильевич" disabled=""
+                                    readonly="">
+                                <div class="form-label">Отчество</div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 p-2">
+                            <div class="form-group  ">
+                                <input class="form-control js-input pr-120" type="text" value="Россия" disabled="">
+                                <div class="form-label">Гражданство</div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 p-2">
+                            <div class="form-group  ">
+                                <input class="form-control js-input pr-120" type="text" data-toggle="datepicker">
+                                <div class="form-label">Дата рождения</div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 p-2">
+                            <div class="row  input-row align-items-center">
+                                <div class="col-auto">Род:</div>
+                                <div class="col-auto">
+                                    <label class="checkbox">
+                                        <input class="checkbox__input" type="radio" name="lk-sex" checked=""><span
+                                            class="checkbox__text">Муж.</span>
+                                    </label>
+                                </div>
+                                <div class="col-auto">
+                                    <label class="checkbox">
+                                        <input class="checkbox__input" type="radio" name="lk-sex"><span
+                                            class="checkbox__text">Жен.</span>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <H3 class="mt-4 p-2">Реквизиты счета:</H3>
+                    <div class="row gx-16">
+                        <div class="col-md-6 p-2">
+                            <div class="form-group  ">
+                                <input class="form-control js-input pr-120" type="number">
+                                <div class="form-label">Расчетный счет карты</div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 p-2">
+                            <div class="form-group  ">
+                                <input class="form-control js-input pr-120" type="text">
+                                <div class="form-label">БИК банка</div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 p-2">
+                            <div class="form-group  ">
+                                <input class="form-control js-input pr-120" type="text">
+                                <div class="form-label">Банк получателя</div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 p-2">
+                            <div class="form-group  ">
+                                <input class="form-control js-input pr-120" type="text">
+                                <div class="form-label">Город банка</div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 p-2">
+                            <div class="form-group  ">
+                                <input class="form-control js-input pr-120" type="text">
+                                <div class="form-label">Кор. счет</div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <H3 class="p-2 mt-4">Паспортные данные:
+                    </H3>
+                    <div class="row gx-16 p-0">
+                        <div class="col-md-4 p-2">
+                            <div class="form-group ">
+                                <input class="form-control js-input pr-120" type="text">
+                                <div class="form-label">Серия</div>
+                            </div>
+                        </div>
+                        <div class="col-md-4 p-2">
+                            <div class="form-group ">
+                                <input class="form-control js-input pr-120" type="text">
+                                <div class="form-label">Номер</div>
+                            </div>
+                        </div>
+                        <div class="col-md-4 p-2">
+                            <div class="form-group ">
+                                <input class="form-control js-input pr-120" type="text" data-toggle="datepicker">
+                                <div class="form-label">Дата выдачи</div>
+                            </div>
+                        </div>
+                        <div class="col-12 p-2">
+                            <div class="form-group ">
+                                <input class="form-control js-input" type="text">
+                                <div class="form-label">Кем выдан</div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 p-2">
+                            <div class="form-group ">
+                                <input class="form-control js-input pr-120" type="number">
+                                <div class="form-label">ИНН</div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <H3 class="p-2 mt-4">Адрес регистрации:
+                    </H3>
+                    <div class="row gx-16">
+                        <div class="col-md-6 p-2">
+                            <div class="form-group  ">
+                                <input class="form-control js-input pr-120" type="text">
+                                <div class="form-label">Населенный пункт</div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 p-2">
+                            <div class="form-group  ">
+                                <input class="form-control js-input pr-120" type="text">
+                                <div class="form-label">Улица</div>
+                            </div>
+                        </div>
+                        <div class="col-md-3 p-2">
+                            <div class="form-group  ">
+                                <input class="form-control js-input pr-120" type="text">
+                                <div class="form-label">№ дома</div>
+                            </div>
+                        </div>
+                        <div class="col-md-3 p-2">
+                            <div class="form-group  ">
+                                <input class="form-control js-input pr-120" type="text">
+                                <div class="form-label">№ строения</div>
+                            </div>
+                        </div>
+                        <div class="col-md-3 p-2">
+                            <div class="form-group  ">
+                                <input class="form-control js-input pr-120" type="text">
+                                <div class="form-label">№ квартиры</div>
+                            </div>
+                        </div>
+                        <div class="col-md-3 p-2">
+                            <div class="form-group  ">
+                                <input class="form-control js-input pr-120" type="text">
+                                <div class="form-label">Индекс</div>
+                            </div>
+                        </div>
+                    </div>
+                    <H3 class="p-2 mt-4">Сканы документов:
+                    </H3>
+                    <div class="row gx-16 p-0">
+                        <div class="col-md-12 p-2">
+                            <div class="upload-label"> 1 разворот паспорта с фото</div>
+                            <div class="upload-label-sub my-1">само фото в паспорте необходимо скрыть любым доступным
+                                способом</div>
+                            <div class="form-group  upload-one"><input class="file" type="file"
+                                    data-show-preview="false" data-msg-placeholder="Загрузить файл">
+
+                            </div>
+                        </div>
+                        <div class="col-md-12 p-2">
+                            <div class="upload-label">Разворот паспорта с актуальной регистрацией</div>
+                            <div class="upload-label-sub my-1">должно быть видно серию и номер внизу страницы</div>
+
+                            <div class="form-group  upload-one"><input class="file" type="file"
+                                    data-show-preview="false" data-msg-placeholder="Загрузить файл">
+                            </div>
+                        </div>
+                        <div class="col-md-12 p-2">
+                            <div class="upload-label">ИНН</div>
+                            <div class="upload-label-sub my-1">можно приложить скриншот с сайта ФНС, на котором видно
+                                ФИО, серию номер паспорта и ИНН</div>
+
+                            <div class="form-group  upload-one"><input class="file" type="file"
+                                    data-show-preview="false" data-msg-placeholder="Загрузить файл"></div>
+                        </div>
+                        <div class="col-md-6">
+                            <button class="btn btn-primary mt-3">Сохранить данные</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-5 p-0">
+                <div class="lk-payment"><img class="" src="img/icons/info.svg" alt="img">
+                    <div class="lk-payment__text">Для получения выплат на расчетный счет необходимо заполнить следующие
+                        поля:
+                    </div>
+                </div>
+                <div class="lk-payment"><img class="" src="img/icons/info.svg" alt="img">
+                    <div class="lk-payment__text"><strong class="strong">Для получения призов на сумму более 4000
+                            рублей,</strong> заполните все поля и предоставьте копии документов для уплаты налогов.
+                        Налог оплачивает Оператор.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    <div class="container  lk-padding bg-white mb-5 tab-pane fade" id="tab-4">
+        <div class="row">
+            <div id="faq" class="col-lg-7 mb-lg-0 mb-40 p-0">
+                <div class="qa-box-wrapper " id="qa">
+                    <div class="qa-box-scroll d-flex flex-column">
+                        <div class="qa-box ">
+                            <a class="qa-box-question " href="#qa-collapse-1" data-toggle="collapse">В какие сроки
+                                проводится Акция?</a>
+                            <div class="collapse qa-collapse show" id="qa-collapse-1" data-parent="#qa">
+                                <div class="qa-box-answer">В какие сроки проводится Акция?</div>
+                            </div>
+                        </div>
+                        <div class="qa-box">
+                            <a class="qa-box-question collapsed" href="#qa-collapse-2" data-toggle="collapse">Что
+                                нужно сделать,
+                                чтобы принять участие в Акции?</a>
+                            <div class="collapse qa-collapse " id="qa-collapse-2" data-parent="#qa">
+                                <div class="qa-box-answer">Персональные данные требуются для проведения выплат на
+                                    расчетные счет, а также в соответствии законом для уплаты налогов при получении
+                                    призов на общую сумму свыше 4000 рублей.
+                                    Налог оплачивает Оператор. Если общая сумма призов составляет меньше 4000 рублей –
+                                    указывать ИНН и прикладывать копии документов не обязательно. Для получения призов
+                                    на сумму более 4000 рублей, заполнение всех полей и предоставление копий документов
+                                    является обязательным.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="qa-box">
+                            <a class="qa-box-question collapsed" href="#qa-collapse-3" data-toggle="collapse">Какова
+                                территория
+                                проведения Акции?</a>
+                            <div class="collapse qa-collapse " id="qa-collapse-3" data-parent="#qa">
+                                <div class="qa-box-answer">Магазины
+                                </div>
+                            </div>
+                        </div>
+                        <div class="qa-box">
+                            <a class="qa-box-question collapsed" href="#qa-collapse-4" data-toggle="collapse">Какие
+                                сроки
+                                проведения Акции?</a>
+                            <div class="collapse qa-collapse " id="qa-collapse-4" data-parent="#qa">
+                                <div class="qa-box-answer">Период регистрации
+                                    участников и чеков
+                                </div>
+                            </div>
+                        </div>
+                        <div class="qa-box">
+                            <a class="qa-box-question collapsed" href="#qa-collapse-5" data-toggle="collapse">Какой
+                                номер
+                                телефона горячей линии Акции?</a>
+                            <div class="collapse qa-collapse " id="qa-collapse-5" data-parent="#qa">
+                                <div class="qa-box-answer">Телефон горячей линии
+                                    8-800-511-01-71
+                                </div>
+                            </div>
+                        </div>
+                        <div class="qa-box">
+                            <a class="qa-box-question collapsed" href="#qa-collapse-6" data-toggle="collapse">Какой
+                                адрес почты
+                                обратной связи?</a>
+                            <div class="collapse qa-collapse " id="qa-collapse-6" data-parent="#qa">
+                                <div class="qa-box-answer">Какой
+                                    адрес почты
+                                    обратной связи?
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-5 p-0">
+                <div class="qa-form ">
+                    <h3>Задать вопрос</h3>
+                    <div class="qa-form__text mt-3 mb-2">Наши специалисты ответят на него
+                        в ближайшее время</div>
+                    <form id="formFeedback" method="post" action="" class="ajax validate">
+
+                        <div class="form-group my-2">
+                            <input class="js-input form-control validate" type="text" name="name" value="">
+                            <label class="form-label">ФИО</label>
+                        </div>
+
+                        <div class="form-group my-2 ">
+                            <input class="js-input form-control validate" type="text" name="email" value="">
+                            <label class="form-label">E-mail</label>
+                        </div>
+                        <div class="form-group my-2 ">
+                            <textarea class="js-input form-control form-control_text validate" name="quest"></textarea>
+                            <label class="form-label">Ваш вопрос</label>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary mt-3">Отправить
+                            вопрос</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer>
+        <div class="container p-0  py-4 text-left">
+            <div class="row">
+                <div class="col-lg-8 p-0 ">
+                    Общий срок проведения акции с 24 апреля 2023 по 31 мая 2023 года. Период выполнения
+                    условий участия:
+                    с 24 апреля 2023
+                    по 31 мая 2023 года. Правила акции, информацию об Организаторе акции, порядке и условиях
+                    её проведения
+                    можно
+                    узнать на сайте psapromo.ru. Организатор акции — ООО «Пежо Ситроен Рус», Оператор акции —
+                    ООО «Ай-Экшн».
+                </div>
+                <div class="col-lg-4 p-0 ">
+                    <div class="row">
+                        <div class="col-8 p-0"> Служба поддержки: <a href="mailto:info@psapromo.ru"
+                                target="_blank">info@psapromo.ru</a></div>
+                        <div class="col-4 p-0"><a class="black-link" href="info@psapromo.ru" target="_blank">Правила
+                                акции</a>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </footer>
+
+    <script src="assets/plugins/jquery-ui/jquery-ui.min.js"></script>
+    <script src="assets/plugins/loader/loader.js"></script>
+    <script src="assets/plugins/jquery-form/jquery.form.min.js"></script>
+    <script src="assets/plugins/bootbox/bootbox.min.js"></script>
+    <script src="assets/plugins/inputmask/jquery.maskedinput.min.js"></script>
+    <script src="assets/plugins/pagination/pagination.js"></script>
+    <script src="assets/plugins/fancybox/jquery.fancybox.min.js"></script>
+    <script src="libs/bootstrap/bootstrap.bundle.min.js"></script>
+    <script src="libs/swiper/swiper-bundle.min.js"></script>
+    <script src="libs/datatables/datatables.min.js"></script>
+    <script src="libs/bootstrap-fileinput/js/fileinput.min.js"></script>
+    <script src="libs/bootstrap-fileinput/js/locales/ru.js"></script>
+    <script src="libs/bootstrap-select/js/bootstrap-select.min.js"></script>
+    <script src="libs/datepicker-bootstrap/js/datepicker.js"></script>
+    <script src="libs/datepicker-bootstrap/js/datepicker.ru-RU.js"></script>
+    <script src="libs/jquery.maskedinput.min.js"></script>
+    <script src="js/main.js"></script>
+    <script src="assets/js/config.js"></script>
+    <script src="assets/js/init.js"></script>
+    <script src="assets/js/app.js"></script>
+</body>
+<html>
